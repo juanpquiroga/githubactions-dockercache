@@ -2,6 +2,11 @@ name: Docker cache workflow
 on: push
 
 jobs:
+  build_no_cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build . -t thing
   build-image:
     if: ${{ false }}
     runs-on: ubuntu-latest
@@ -14,6 +19,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-image-gpr:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
