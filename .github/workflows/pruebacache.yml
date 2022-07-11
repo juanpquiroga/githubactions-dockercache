@@ -14,7 +14,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-image-gpr:
-    build_with_gpr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
